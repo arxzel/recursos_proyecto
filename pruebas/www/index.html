@@ -68,15 +68,75 @@
                             <div id="divECOCual">
                                 
                             </div>
+                            <div id="divECOCual1">
+                                
+                            </div>
                             
                         </fieldset>
                     </form>
+                </div>
+
+                <p>
+                    Estas en la pagina uno
+                </p>
+                <div name="nextPrevious">
+                    <center>
+                        <a href="#pagina2" class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-carat-r">siguiente</a>                        
+                    </center>
                 </div>
             </content>
             <footer data-role="footer">
                 <h1>footer- pie de pagina</h1>
             </footer>
         </section>
+
+
+
+        <section data-role="page" id="pagina2">
+            <header data-role="header">
+                <h1>Formulario2</h1>
+            </header>
+            <article data-role="content">
+                <div id="infoBasic2">
+                <p>
+                    Estas en la pagina dos
+                </p>
+                <div name="nextPrevious">
+                    <center>
+                        <a href="#index" class="ui-btn ui-btn-inline  ui-btn-icon-left ui-icon-carat-l">Volver</a>
+                        <a href="#pagina3" class="ui-btn ui-btn-inline  ui-btn-icon-right ui-icon-carat-r">siguiente</a>                        
+                    </center>
+                </div>
+                </div>
+            </article>
+            <footer data-role="footer">
+                <h1>footer- pie de pagina 3</h1>
+            </footer>
+        </section>
+
+
+        <section data-role="page" id="pagina3">
+            <header data-role="header">
+                <h1>Formulario3</h1>
+            </header>
+            <content data-role="content">
+                <div id="infoBasic3">
+                    <p>
+                    Estas en la pagina tres
+                </p>
+                <div name="nextPrevious">
+                    <center>
+                        <a href="#pagina2" class="ui-btn ui-btn-inline  ui-btn-icon-left ui-icon-carat-l">Volver</a>                      
+                    </center>
+                </div>
+                </div>
+            </article>
+            <footer data-role="footer">
+                <h1>footer- pie de pagina 3</h1>
+            </footer>
+        </section>
+
+
 
 
         <script type="text/javascript">
@@ -112,7 +172,7 @@
 
             function verificarTabla(){
                 var tieneAlgo = false;
-                var divECOCual = document.getElementById("divECOCual");
+                var divECOCual1 = document.getElementById("divECOCual1");
                 var E1V1 = document.getElementById("E1V1").value;
                 var E1V2 = document.getElementById("E1V2").value;
                 var E1V3 = document.getElementById("E1V3").value;
@@ -130,9 +190,9 @@
                 };
 
                 if(tieneAlgo){
-                    divECOCual.innerHTML=activado;
+                    divECOCual1.innerHTML=activado;
                 }else{
-                    divECOCual.innerHTML=desactivado;
+                    divECOCual1.innerHTML=desactivado;
                 }
 
             }
