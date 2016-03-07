@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head lang="es">
+        <meta charset="UTF-8">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5/jquery.mobile.theme-1.4.5.min.css">
+
+        <link rel="stylesheet" type="text/css" href="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.css">
+
+        <script type="text/javascript" src="js/jquery-2.2.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <title>Formulario</title>
+    </head>
+    <body>
+        <section data-role="page" id="index">
+            <header data-role="header">
+                <h1>Formulario</h1>
+            </header>
+            <content data-role="content">
+                <div id="infoBasic">
+                    <form id="formInfoBasic">
+                        <label for="fechValo">Fecha de valoración:</label>
+                        <input name="fechValo" id="fechValo" value="" type="date" placeholder="DD/MM/AAAA">
+
+                        <label for="nombPacien">Nombre del paciente:</label>
+                        <input name="nombPacien" id="nombPacien" value="" type="text" placeholder="Nombre">
+
+                        <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                        <legend>Estado Civil:</legend>
+                            
+                            <input name="estadoCivil" id="ECSoltero" value="Soltero" checked="checked" type="radio">
+                            <label for="ECSoltero" onclick="inahibilitarEstadoCivilOtro()">Soltero</label>
+                            
+                            <input name="estadoCivil" id="ECCasado" value="Casado" type="radio">
+                            <label for="ECCasado" onclick="inahibilitarEstadoCivilOtro()">Casado</label>
+                            
+                            <input name="estadoCivil" id="otro" value="otro" type="radio" onclick="habilitarEstadoCivilOtro()">
+                            <label for="otro">otro</label>
+
+
+                        <div>
+                            <table onclick="verificarTabla()">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th> valor 1</th>
+                                        <th> valor 2</th>
+                                        <th> valor 3</th>
+                                        <th> valor 4</th>
+                                        <th> valor 5</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th>Estado1 </th>
+                                        <td><input type="text" id="E1V1"></td>
+                                        <td><input type="text" id="E1V2"></td>
+                                        <td><input type="text" id="E1V3"></td>
+                                        <td><input type="text" id="E1V4"></td>
+                                        <td><input type="text" id="E1V5"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                            <div id="divECOCual">
+                                
+                            </div>
+                            
+                        </fieldset>
+                    </form>
+                </div>
+            </content>
+            <footer data-role="footer">
+                <h1>footer- pie de pagina</h1>
+            </footer>
+        </section>
+
+
+        <script type="text/javascript">
+
+            function inahibilitarEstadoCivilOtro(){
+
+                var divECOCual = document.getElementById("divECOCual");
+
+                 var desactivado="<input name='ECOCual' id='ECOCual' value='' type='text' placeholder='Estado Civil' disabled='true'>";
+                 divECOCual.innerHTML=desactivado;
+            }
+            function habilitarEstadoCivilOtro(){
+               
+
+                var activado =" <input name='ECOCual' id='ECOCual' value='' type='text' placeholder='Estado Civil'>";
+
+                var divECOCual = document.getElementById("divECOCual");
+                var tieneAlgo = verificarNombPacien();
+
+                if(tieneAlgo){
+                    divECOCual.innerHTML=activado;
+                }
+            }
+
+            function verificarNombPacien(){
+                var tieneAlgo = false;
+                var nombPacien = document.getElementById("nombPacien").value;
+                if (nombPacien != '') {
+                    tieneAlgo = true;
+                };
+                return tieneAlgo;
+            }
+
+            function verificarTabla(){
+                var tieneAlgo = false;
+                var divECOCual = document.getElementById("divECOCual");
+                var E1V1 = document.getElementById("E1V1").value;
+                var E1V2 = document.getElementById("E1V2").value;
+                var E1V3 = document.getElementById("E1V3").value;
+                var E1V4 = document.getElementById("E1V4").value;
+                var E1V5 = document.getElementById("E1V5").value;
+
+                var activado =" <input name='botonVerificado' id='botonVerificado' value='hola mundo' type='button'>";
+
+                
+                var desactivado="<input name='botonVerificado' id='botonVerificado' value='hola mundo' type='button' disabled='true'>";
+
+
+                if (E1V1 != '' && E1V2 != '' && E1V3 != '' && E1V4 != '' && E1V5 != ''){
+                    tieneAlgo = true;
+                };
+
+                if(tieneAlgo){
+                    divECOCual.innerHTML=activado;
+                }else{
+                    divECOCual.innerHTML=desactivado;
+                }
+
+            }
+        </script>
+
+    </body>
+</html>
